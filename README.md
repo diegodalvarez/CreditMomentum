@@ -1,5 +1,9 @@
 # CreditMomentum
-Momentum Strategies Applied in the Credit Market
+Momentum Strategies Applied in the Credit Market. Most of these strategies were originally developed for credit default indices and trading using the spread. While it would be ideal to generate returns for the credit default swap indices there are a couple of reasons why the repo will focus primarily on credit etfs. 
+1. CDS Index data is quite difficult to find Bloomberg only has 2 indices with both spread and price 
+2. Of those two indices (5y HY & 5y EM) the data quality is not good and its quite difficult to clean the data
+3. Getting other statistics like duration is also quite difficult for CDS Indices
+4. CDS Indices are also less liquid
 
 ## Credit Default Swap Indices Kalman Filter
 Due to Bloomberg Terminal Data options there were only two indices that had CDS OAS and CDS Index
