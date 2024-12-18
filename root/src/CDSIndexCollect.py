@@ -71,4 +71,4 @@ class CreditDefaultSwapDataCollector:
             
         return df_out
     
-if __name__ == "__main__": CreditDefaultSwapDataCollector().get_cds_indices(verbose = True)
+if __name__ == "__main__": CreditDefaultSwapDataCollector().get_cds_indices()

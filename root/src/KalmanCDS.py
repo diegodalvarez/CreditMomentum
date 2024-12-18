@@ -147,7 +147,7 @@ class KalmanCreditDefaultSignals(CreditDefaultSwapDataCollector):
         
         try:
             
-            if verbose == True: print("Searching for CDS Signals")
+            if verbose == True: print("Searchuing for CDS Signals")
             df_combined = pd.read_parquet(path = file_path, engine = "pyarrow")
             if verbose == True: print("Found data\n")
             
