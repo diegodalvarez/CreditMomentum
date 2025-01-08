@@ -135,5 +135,5 @@ class MomentumCreditSignals(CreditDefaultSwapDataCollector):
             
         return df_out
         
-#df = MomentumCreditSignals().get_regression_signals()
+df = MomentumCreditSignals().get_regression_signals()
 df = MomentumCreditSignals().generate_regression_zscore()

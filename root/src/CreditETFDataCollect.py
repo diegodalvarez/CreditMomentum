@@ -113,19 +113,20 @@ class CreditETFDataCollector:
             
             raw_path = os.path.join(self.bbg_repo, "ETFIndices", "BondPricing")
             paths    = [os.path.join(raw_path, path) for path in os.listdir(raw_path)]
-            df_out   = (pd.read_parquet(
+            
+            df_out = (pd.read_parquet(
                 path = paths, engine = "pyarrow").
                 groupby(["security", "variable"]).
-                apply(self._diff_clean, long_window, short_window, include_groups = False).
+                apply(self._diff_clean, long_window, short_window).
                 drop(columns = ["security"]).
                 reset_index().
                 drop(columns = ["level_2"]).
                 groupby(["security", "variable"]).
-                apply(self._px_clean, long_window, short_window, include_groups = False).
+                apply(self._px_clean, long_window, short_window).
                 drop(columns = ["security"]).
                 reset_index().
                 drop(columns = ["level_2"]))
-            
+
             if verbose == True: print("Saving data")
             df_out.to_parquet(path = file_path, engine = "pyarrow")
         
@@ -190,9 +191,9 @@ class CreditETFDataCollector:
                     "YAS_ISPREAD_TO_GOVT"    : "ispread",
                     "AVERAGE_WEIGHTED_COUPON": "WAC",
                     "YAS_BOND_YLD"           : "yld"}).
-                query("security == security.min()").
                 groupby("security").
-                apply(self._get_rtn, include_groups = False).
+                apply(self._get_rtn).
+                drop(columns = ["security"]).
                 reset_index().
                 drop(columns = ["level_1"]))
             
